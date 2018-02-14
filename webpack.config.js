@@ -1,13 +1,23 @@
-const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-    entry: "src/ts/app.js",
+    entry: "./src/ts/app.tsx",
     output: {
 	filename: "resources/js/app.js"
     },
     devtool: "source-map",
-    plugins: [
-        new UglifyJsPlugin({uglifyOptions: {ecma: 6}})
-    ]
+    resolve: {
+	extensions: ['.ts', '.tsx', '.js']
+    },
+    // plugins: [
+    //     new UglifyJsPlugin({uglifyOptions: {ecma: 6}})
+    // ],
+    module: {
+	rules: [
+	    {
+		test: /\.tsx?$/,
+		loader: 'ts-loader'
+	    }
+	]
+    }
 };
