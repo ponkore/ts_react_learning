@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "build": "webpack --colors --config ./webpack.config.dev.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --colors --config ./webpack.config.dev.js"
   },
   "keywords": [],
   "author": "",
@@ -13,8 +13,9 @@
   "devDependencies": {
     "@types/react": "^16.0.38",
     "@types/react-dom": "^16.0.4",
+    "awesome-typescript-loader": "^3.4.1",
     "gulp": "^3.9.1",
-    "ts-loader": "^3.5.0",
+    "source-map-loader": "^0.2.3",
     "typescript": "^2.7.1",
     "webpack": "^3.11.0",
     "webpack-stream": "^4.0.1"

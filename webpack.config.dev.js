@@ -15,12 +15,16 @@ module.exports = {
 	rules: [
 	    {
 		test: /\.tsx?$/,
-		loader: 'ts-loader'
-	    }//,
-            // {
-	    // 	test: /\.scss$/,
-	    // 	loaders: ['style-loader', 'css-loader', 'sass-loader']
-            // }
+		loader: "awesome-typescript-loader"
+	    },
+	    {
+		test: /\.js$/,
+		loader: "source-map-loader"
+	    },
+            {
+		test: /\.scss$/,
+		loaders: ['style-loader', 'css-loader', 'sass-loader']
+            }
 	]
     }
 };
