@@ -13,8 +13,10 @@
   "devDependencies": {
     "awesome-typescript-loader": "^3.4.1",
     "css-loader": "^0.28.9",
+    "del": "^3.0.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "gulp": "^3.9.1",
+    "mkdirp": "^0.5.1",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "source-map-loader": "^0.2.3",
