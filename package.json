@@ -11,8 +11,6 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@types/react": "^16.0.38",
-    "@types/react-dom": "^16.0.4",
     "awesome-typescript-loader": "^3.4.1",
     "gulp": "^3.9.1",
     "source-map-loader": "^0.2.3",
@@ -21,6 +19,8 @@
     "webpack-stream": "^4.0.1"
   },
   "dependencies": {
+    "@types/react": "^16.0.38",
+    "@types/react-dom": "^16.0.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   }
