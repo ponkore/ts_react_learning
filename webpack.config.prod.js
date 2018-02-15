@@ -1,4 +1,4 @@
-// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: "./src/ts/app.tsx",
@@ -9,9 +9,9 @@ module.exports = {
     resolve: {
 	extensions: ['.ts', '.tsx', '.js']
     },
-    // plugins: [
-    //     new UglifyJsPlugin({uglifyOptions: {ecma: 6}})
-    // ],
+    plugins: [
+        new UglifyJsPlugin({uglifyOptions: {ecma: 6}})
+    ],
     module: {
 	rules: [
 	    {
