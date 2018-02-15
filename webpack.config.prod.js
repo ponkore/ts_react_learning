@@ -6,7 +6,6 @@ module.exports = {
 	filename: "js/app.js",
 	path: __dirname + "/dist"
     },
-    devtool: "source-map",
     resolve: {
 	extensions: ['.ts', '.tsx', '.js']
     },
@@ -22,10 +21,6 @@ module.exports = {
 	    {
 		test: /\.tsx?$/,
 		loader: 'ts-loader'
-	    },
-	    {
-		test: /\.js$/,
-		loader: "source-map-loader"
 	    },
             {
 		test: /\.scss$/,
