@@ -3,7 +3,7 @@
 module.exports = {
     entry: "./src/ts/app.tsx",
     output: {
-	filename: "resources/js/app.js"
+	filename: "js/app.js"
     },
     devtool: "source-map",
     resolve: {
