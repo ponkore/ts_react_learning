@@ -1,10 +1,13 @@
+const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const extractSass = new ExtractTextPlugin("app.css");
 
-module.exports = {
+module.exports = [{
     entry: "./src/ts/app.tsx",
     output: {
-	filename: "js/app.js",
-	path: __dirname + "/dist"
+	path: path.resolve(__dirname, "./dist/js/"),
+	filename: "app.js"
     },
     resolve: {
 	extensions: ['.ts', '.tsx', '.js']
@@ -20,12 +23,36 @@ module.exports = {
 	rules: [
 	    {
 		test: /\.tsx?$/,
-		loader: 'ts-loader'
-	    },
-            {
-		test: /\.scss$/,
-		loaders: ['style-loader', 'css-loader', 'sass-loader']
-            }
+		loader: "awesome-typescript-loader"
+	    }
 	]
     }
-};
+},{
+    entry: {
+	main: "./src/scss/app.scss"
+    },
+    output: {
+	path: path.resolve(__dirname, "./dist/css/"),
+	filename: "app.css"
+    },
+    module: {
+	rules: [
+            {
+		test: /\.scss$/,
+		exclude: /node_modules/,
+		// loaders: ['style-loader', 'css-loader', 'sass-loader']
+		use: extractSass.extract({
+		    fallback: "style-loader",
+		    use: ["css-loader", "sass-loader"]
+		})
+            }
+	]
+    },
+    plugins: [
+	extractSass
+    ],
+    resolve: {
+	// style-loader の中で、.jsファイルを拡張子なしで requireしているところがあるため、'.js'が必要
+	extensions: ['.css', '.js']
+    }
+}];
