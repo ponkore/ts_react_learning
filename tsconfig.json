@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
 	"strictNullChecks": true,
-	"noUnusedLocals" : false,
+	"noUnusedLocals" : true,
 	"noImplicitThis": true,
 	"alwaysStrict": true,
 	"outDir": "./dist/",
