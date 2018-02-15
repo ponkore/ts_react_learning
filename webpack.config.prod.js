@@ -40,7 +40,6 @@ module.exports = [{
             {
 		test: /\.scss$/,
 		exclude: /node_modules/,
-		// loaders: ['style-loader', 'css-loader', 'sass-loader']
 		use: extractSass.extract({
 		    fallback: "style-loader",
 		    use: ["css-loader", "sass-loader"]
