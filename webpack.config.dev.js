@@ -7,12 +7,20 @@ module.exports = {
     resolve: {
 	extensions: ['.ts', '.tsx', '.js']
     },
+    externals: {
+	"react": "React",
+	"react-dom": "ReactDOM"
+    },
     module: {
 	rules: [
 	    {
 		test: /\.tsx?$/,
 		loader: 'ts-loader'
-	    }
+	    }//,
+            // {
+	    // 	test: /\.scss$/,
+	    // 	loaders: ['style-loader', 'css-loader', 'sass-loader']
+            // }
 	]
     }
 };
