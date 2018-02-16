@@ -29,7 +29,7 @@ gulp.task('build:prod', (callback) => {
     });
 });
 
-gulp.task('serve', ['clean:dist', 'copy:html', 'build:dev'], function() {
+gulp.task('serve', ['clean:dist', 'build:dev'], function() {
     exec(dev_server('./webpack.config.dev.js'), (err, stdout, stderr) => {
 	console.log(stdout);
 	console.log(stderr);
