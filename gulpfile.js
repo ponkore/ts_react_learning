@@ -2,6 +2,8 @@ const gulp = require('gulp');
 const mkdirp = require('mkdirp');
 const del = require('del');
 const exec = require('child_process').exec;
+const webpack = (config) => { return "./node_modules/.bin/webpack --config " + config; }
+const dev_server = (config) => { return "./node_modules/.bin/webpack-dev-server --config " + config + " --watch --hot"; }
 
 gulp.task('clean:dist', () => {
     mkdirp('dist', (err) => {
@@ -17,7 +19,7 @@ gulp.task('copy:html', () => {
 
 gulp.task('build:dev', (callback) => {
     // see https://www.npmjs.com/package/gulp-exec, not using pipe
-    exec('./node_modules/.bin/webpack --config ./webpack.config.dev.js', (err, stdout, stderr) => {
+    exec(webpack('./webpack.config.dev.js'), (err, stdout, stderr) => {
 	console.log(stdout);
 	console.log(stderr);
 	callback(err);
@@ -25,7 +27,7 @@ gulp.task('build:dev', (callback) => {
 });
 
 gulp.task('build:prod', (callback) => {
-    exec('./node_modules/.bin/webpack --config ./webpack.config.prod.js', (err, stdout, stderr) => {
+    exec(webpack('./webpack.config.prod.js'), (err, stdout, stderr) => {
 	console.log(stdout);
 	console.log(stderr);
 	callback(err);
@@ -33,7 +35,7 @@ gulp.task('build:prod', (callback) => {
 });
 
 gulp.task('serve', ['clean:dist', 'copy:html', 'build:dev'], function() {
-    exec('./node_modules/.bin/webpack-dev-server --config ./webpack.config.dev.js', (err, stdout, stderr) => {
+    exec(dev_server('./webpack.config.dev.js'), (err, stdout, stderr) => {
 	console.log(stdout);
 	console.log(stderr);
 	callback(err);
