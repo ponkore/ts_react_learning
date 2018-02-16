@@ -28,6 +28,10 @@ module.exports = [{
 		loader: "source-map-loader"
 	    }
 	]
+    },
+    devServer: {
+	contentBase: path.resolve(__dirname, 'dist'),
+	port: 3000
     }
 },{
     entry: {
