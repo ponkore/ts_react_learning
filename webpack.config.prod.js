@@ -22,7 +22,7 @@ module.exports = [{
     plugins: [
 	new HtmlWebpackPlugin({
 	    inject: true,
-	    template: 'public/index.html'
+	    template: 'src/index.html'
 	}),
 	new InterpolateHtmlPlugin({
 	    'bootstrap_css_cdn': 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css'
