@@ -24,7 +24,10 @@ module.exports = [{
 	    template: 'src/index.html'
 	}),
 	new InterpolateHtmlPlugin({
-	    'bootstrap_css_cdn': 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css'
+	    'react_js_cdn': 'https://unpkg.com/react@16/umd/react.development.js',
+	    'react_dom_js_cdn': 'https://unpkg.com/react-dom@16/umd/react-dom.development.js',
+	    'bootstrap_css_cdn': 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css',
+	    'bs_integrity': 'sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm'
 	})
     ]
 },{
