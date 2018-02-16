@@ -1,9 +1,34 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const InterpolateHtmlPlugin = require('interpolate-html-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const extractSass = new ExtractTextPlugin("app.css");
 
 module.exports = [{
+    entry: "./src/index.html",
+    output: {
+	path: path.resolve(__dirname, "./dist/"),
+	filename: "index.html"
+    },
+    module: {
+	rules: [
+	    {
+		test: /\.html/,
+		loader: require.resolve('html-loader')
+	    }
+	]
+    },
+    plugins: [
+	new HtmlWebpackPlugin({
+	    inject: true,
+	    template: 'public/index.html'
+	}),
+	new InterpolateHtmlPlugin({
+	    'bootstrap_css_cdn': 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css'
+	})
+    ]
+},{
     entry: "./src/ts/app.tsx",
     output: {
 	path: path.resolve(__dirname, "./dist/js/"),

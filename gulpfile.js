@@ -12,11 +12,6 @@ gulp.task('clean:dist', () => {
     return del.sync(['dist/*']);
 });
 
-gulp.task('copy:html', () => {
-    return gulp.src(['src/index.html'])
-	.pipe(gulp.dest('dist/'));
-});
-
 gulp.task('build:dev', (callback) => {
     // see https://www.npmjs.com/package/gulp-exec, not using pipe
     exec(webpack('./webpack.config.dev.js'), (err, stdout, stderr) => {
@@ -44,7 +39,6 @@ gulp.task('serve', ['clean:dist', 'copy:html', 'build:dev'], function() {
 
 gulp.task('default', [
     'clean:dist',
-    'copy:html',
     'build:dev',
     'serve'
 ]);
